@@ -1,3 +1,3 @@
 # javascript
 Learning web technology<br>
-make some  notes about demo
+Make some  notes about demo
