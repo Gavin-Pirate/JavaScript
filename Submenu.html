@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>菜单</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.wrap{
+				position: relative;
+				width: 200px;
+				left: 50px;
+				top: 50px;
+			}
+			ul{
+				padding: 15px 0;
+				margin: 9px;
+				list-style: none;
+				background: #6c6669;
+				color: white;
+				border-right-width: 0;
+			}
+			li{
+				display: block;
+				height: 30px;
+				line-height: 30px;
+				padding-left: 12px;
+				cursor: pointer;
+				font-size: 14px;
+				position: relative;
+			}
+			li.active{
+				background: #999395;
+			}
+			li span:hover{
+				color: #c81623;
+			}
+			.none{
+				display: none;
+			}
+			#sub{
+				width: 600px;
+				position: absolute;
+				border: 1px solid #f7f7f7;
+				background: #f7f7f7;
+				box-shadow: 2px 0 5px rgba(0,0,0,.3);
+				left: 200px;
+				top: 0;
+				box-sizing: border-box;
+				margin: 0;
+				padding: 10px;
+			}
+			.sub_content a{
+				font-size: 12px;
+				color: #666;
+				text-decoration: none;	
+			}
+			.sub_content dd a{
+				border-left: 1px solid #e0e0e0;
+				padding: 0 10px;
+				margin: 4px 0;
+			}
+			.sub_content dl {
+				overflow: hidden;
+			}
+			.sub_content dt{
+				float: left;
+				width: 70px;
+				font-weight: bold;
+				clear: left;
+				position: relative;
+			}
+			.sub_content dd{
+				float: left;
+				margin-left:5px;
+				margin-bottom: 5px;
+			}
+			.sub_content dt i{
+				width: 4px;
+				height:14px;
+				font: 400 9px/14px consolas; 
+				position: absolute;
+				right:5px;
+				top: 5px;
+			}
+		</style>
+	</head>
+	<body>
+			<div class="wrap" id="test">
+				<ul id="ul">
+					<li data-id ="a"><span>家用电器</span></li>
+					<li data-id="b"><span>手机</span> /<span> 运营商 </span>/<span> 数码</span></li>
+					<li data-id="c"><span>电脑办公</span></li>
+					<li data-id="d"><span>家居</span> / <span>家具</span> / <span>家装</span> / <span>厨具</span></li>
+					<li data-id="e"><span>男装</span> / <span>女装</span> /<span> 童装</span> / <span>内衣</span></li>
+					<li data-id="f"><span>个性化妆</span> / <span>清洁用具 </span>/<span> 宠物</span></li>
+					<li data-id="g"><span>鞋靴 </span>/ <span>箱包 </span>/<span> 珠宝</span> /<span> 奢侈品</span></li>
+					<li data-id="h"><span>运动 </span>/<span> 户外 </span>/ <span>钟表</span></li>
+					<li data-id="i"><span>汽车</span> / <span>汽车用品</span></li>
+					<li data-id="j"><span>女婴</span> / <span>玩具乐器</span></li>
+					<li data-id="k"><span>食品 </span>/<span> 酒类</span> /<span> 生鲜</span> / <span>特产</span></li>
+					<li data-id="l"><span>医药保健</span></li>
+				</ul>
+			<div id="sub" class="none">
+				<div id="a" class="sub_content none">
+					<dl>
+						<dt><a>电视</a><i>&gt;</i></dt>
+						<dd><a>曲面电视</a>
+							<a>超薄电视</a>
+							<a>HDR电视</a>
+							<a>OLED电视</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>空调</a><i>&gt;</i></dt>
+						<dd><a>壁挂式空调</a>
+							<a>柜式空调</a>
+							<a>中央空调</a>
+							<a>节能空调</a>
+							<a>智能空调变频空调</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>洗衣机</a><i>&gt;</i></dt>
+						<dd><a>筒洗衣机</a>
+							<a>洗烘一体机</a>
+							<a>波轮洗衣机</a>
+							<a>迷你洗衣机</a>
+							<a>烘干机洗衣机配件</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>冰箱</a><i>&gt;</i></dt>
+						<dd><a>多门</a>
+							<a>对开门</a>
+							<a>三门</a>
+							<a>双门</a>
+							<a>冷柜/冰吧</a>
+							<a>酒柜冰箱配件</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>厨卫大电</a><i>&gt;</i></dt>
+						<dd><a>油烟机</a>
+							<a>燃气灶</a>
+							<a>烟灶套装</a>
+							<a>消毒柜</a>
+							<a>洗碗机</a>
+							<a>电热水器</a>
+							<a>燃气热水器</a>
+						</dd>
+					</dl>	
+				</div>
+				<div id="b" class="sub_content none">
+					<dl>
+						<dt><a>手机通讯</a><i>&gt;</i></dt>
+						<dd><a>手机</a>
+							<a>对讲机</a>
+							<a>以旧换新</a>
+							<a>手机维修</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>运营商</a><i>&gt;</i></dt>
+						<dd><a>合约机</a>
+							<a>选号码</a>
+							<a>固话宽带</a>
+							<a>办套餐</a>
+							<a>充话费/流量</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>手机配件</a><i>&gt;</i></dt>
+						<dd><a>手机壳</a>
+							<a>贴膜</a>
+							<a>手机存储卡</a>
+							<a>数据线</a>
+							<a>充电器</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>摄影摄像</a><i>&gt;</i></dt>
+						<dd><a>数码相机</a>
+							<a>单反相机</a>
+							<a>拍立得</a>
+							<a>运动相机</a>
+							<a>摄像机</a>
+							<a>镜头</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>数码配件</a><i>&gt;</i></dt>
+						<dd><a>存储卡</a>
+							<a>三脚架</a>
+							<a>相机包</a>
+							<a>滤镜</a>
+							<a>闪光灯</a>
+							<a>机身附件</a>
+							<a>镜头附件</a>
+						</dd>
+					</dl>	
+				</div>
+				<div id="c" class="sub_content none">
+					<dl>
+						<dt><a>电脑整机</a><i>&gt;</i></dt>
+						<dd><a>笔记本</a>
+							<a>游戏本</a>
+							<a>平板电脑</a>
+							<a>台式机</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>电脑配件</a><i>&gt;</i></dt>
+						<dd><a>显示器</a>
+							<a>CPU</a>
+							<a>主板</a>
+							<a>显卡</a>
+							<a>硬盘</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>外设产品</a><i>&gt;</i></dt>
+						<dd><a>鼠标</a>
+							<a>键盘</a>
+							<a>键鼠套装</a>
+							<a>网络仪表仪器</a>
+							<a>U盘</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>游戏设备</a><i>&gt;</i></dt>
+						<dd><a>游戏机</a>
+							<a>游戏耳机</a>
+							<a>手柄/方向盘</a>
+							<a>游戏软件</a>
+							<a>游戏配件</a>
+							<a>游戏周边</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>网络产品</a><i>&gt;</i></dt>
+						<dd><a>路由器</a>
+							<a>网络机顶盒</a>
+							<a>交换机</a>
+							<a>网络存储</a>
+							<a>网卡</a>
+							<a>4G/3G上网</a>
+							<a>网络配件</a>
+						</dd>
+					</dl>	
+				</div>
+				<div id="d" class="sub_content none">
+					<dl>
+						<dt><a>厨具</a><i>&gt;</i></dt>
+						<dd><a>烹饪锅具</a>
+							<a>锅具套装</a>
+							<a>保温杯</a>
+							<a>刀剪菜板</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>家坊</a><i>&gt;</i></dt>
+						<dd><a>床品套件</a>
+							<a>被子</a>
+							<a>枕芯</a>
+							<a>蚊帐</a>
+							<a>凉席</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>生活日用</a><i>&gt;</i></dt>
+						<dd><a>收纳用品</a>
+							<a>雨伞雨具</a>
+							<a>净化除味</a>
+							<a>浴室用品</a>
+							<a>洗晒/熨烫</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>家装软饰</a><i>&gt;</i></dt>
+						<dd><a>装饰字画</a>
+							<a>装饰摆件</a>
+							<a>手工/十字绣</a>
+							<a>相框/照片墙</a>
+							<a>墙贴/装饰贴</a>
+							<a>花瓶花艺</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>灯具</a><i>&gt;</i></dt>
+						<dd><a>吸顶灯</a>
+							<a>吊灯</a>
+							<a>台灯</a>
+							<a>简灯射灯</a>
+							<a>装饰灯</a>
+							<a>LED灯</a>
+							<a>氛围照明</a>
+						</dd>
+					</dl>	
+				</div>
+				<div id="e" class="sub_content none">
+					<dl>
+						<dt><a>女装</a><i>&gt;</i></dt>
+						<dd><a>新品推荐</a>
+							<a>连衣裙</a>
+							<a>羽绒服</a>
+							<a>毛呢大衣</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>男装</a><i>&gt;</i></dt>
+						<dd><a>当季热卖</a>
+							<a>新品推荐</a>
+							<a>T桖</a>
+							<a>牛仔裤</a>
+							<a>休闲裤</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>内衣</a><i>&gt;</i></dt>
+						<dd><a>文胸</a>
+							<a>睡衣/家居服</a>
+							<a>男士内裤</a>
+							<a>女式内裤</a>
+							<a>吊带/背心</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>配饰</a><i>&gt;</i></dt>
+						<dd><a>女士围巾</a>
+							<a>男士丝巾</a>
+							<a>光学镜架</a>
+							<a>太阳镜</a>
+							<a>防辐射眼睛</a>
+							<a>老花镜</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>童装</a><i>&gt;</i></dt>
+						<dd><a>套装</a>
+							<a>卫衣</a>
+							<a>裤子</a>
+							<a>外套/大衣</a>
+							<a>毛衣/针织衫</a>
+							<a>衬衫</a>
+							<a>户外/运动服</a>
+						</dd>
+					</dl>	
+				</div>
+				<div id="f" class="sub_content none">
+					<dl>
+						<dt><a>面部护肤</a><i>&gt;</i></dt>
+						<dd><a>补水保湿</a>
+							<a>卸妆</a>
+							<a>洁面</a>
+							<a>爽肤水</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>洗发护发</a><i>&gt;</i></dt>
+						<dd><a>洗发</a>
+							<a>护发</a>
+							<a>染发</a>
+							<a>造型</a>
+							<a>假发</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>身体护理</a><i>&gt;</i></dt>
+						<dd><a>补水保湿</a>
+							<a>沐浴</a>
+							<a>润肤</a>
+							<a>精油</a>
+							<a>颈部</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>口腔护理</a><i>&gt;</i></dt>
+						<dd><a>牙膏</a>
+							<a>牙刷</a>
+							<a>漱口水</a>
+							<a>套装</a>
+							<a>牙粉</a>
+							<a>牙线</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>香水彩妆</a><i>&gt;</i></dt>
+						<dd><a>BB霜</a>
+							<a>化妆棉</a>
+							<a>女士香水</a>
+							<a>男士香水</a>
+							<a>底妆</a>
+							<a>眉笔</a>
+							<a>睫毛膏</a>
+						</dd>
+					</dl>	
+					<dl>
+						<dt><a>面部护肤</a><i>&gt;</i></dt>
+						<dd><a>补水保湿</a>
+							<a>卸妆</a>
+							<a>洁面</a>
+							<a>爽肤水</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>洗发护发</a><i>&gt;</i></dt>
+						<dd><a>洗发</a>
+							<a>护发</a>
+							<a>染发</a>
+							<a>造型</a>
+							<a>假发</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>身体护理</a><i>&gt;</i></dt>
+						<dd><a>补水保湿</a>
+							<a>沐浴</a>
+							<a>润肤</a>
+							<a>精油</a>
+							<a>颈部</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>口腔护理</a><i>&gt;</i></dt>
+						<dd><a>牙膏</a>
+							<a>牙刷</a>
+							<a>漱口水</a>
+							<a>套装</a>
+							<a>牙粉</a>
+							<a>牙线</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>香水彩妆</a><i>&gt;</i></dt>
+						<dd><a>BB霜</a>
+							<a>化妆棉</a>
+							<a>女士香水</a>
+							<a>男士香水</a>
+							<a>底妆</a>
+							<a>眉笔</a>
+							<a>睫毛膏</a>
+						</dd>
+					</dl>	
+				</div>
+				<div id="g" class="sub_content none">
+					<dl>
+						<dt><a>时尚女鞋</a><i>&gt;</i></dt>
+						<dd><a>新品推荐</a>
+							<a>单鞋</a>
+							<a>休闲鞋</a>
+							<a>帆布鞋</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>潮流女包</a><i>&gt;</i></dt>
+						<dd><a>真皮包</a>
+							<a>单肩包</a>
+							<a>手提包</a>
+							<a>斜挎包</a>
+							<a>双肩包</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>精品男包</a><i>&gt;</i></dt>
+						<dd><a>男士钱包</a>
+							<a>双肩包</a>
+							<a>商务公文包</a>
+							<a>男士手包</a>
+							<a>卡包名片夹</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>功能箱包</a><i>&gt;</i></dt>
+						<dd><a>女士拉杆箱</a>
+							<a>拉杆箱</a>
+							<a>拉杆包</a>
+							<a>旅行包</a>
+							<a>电脑包</a>
+							<a>休闲运动包</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>奢侈品</a><i>&gt;</i></dt>
+						<dd><a>箱包</a>
+							<a>钱包</a>
+							<a>服饰</a>
+							<a>腰带</a>
+							<a>鞋靴</a>
+							<a>太阳镜</a>
+							<a>饰品</a>
+						</dd>
+					</dl>	
+						<dl>
+						<dt><a>时尚女鞋</a><i>&gt;</i></dt>
+						<dd><a>新品推荐</a>
+							<a>单鞋</a>
+							<a>休闲鞋</a>
+							<a>帆布鞋</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>潮流女包</a><i>&gt;</i></dt>
+						<dd><a>真皮包</a>
+							<a>单肩包</a>
+							<a>手提包</a>
+							<a>斜挎包</a>
+							<a>双肩包</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>精品男包</a><i>&gt;</i></dt>
+						<dd><a>男士钱包</a>
+							<a>双肩包</a>
+							<a>商务公文包</a>
+							<a>男士手包</a>
+							<a>卡包名片夹</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>功能箱包</a><i>&gt;</i></dt>
+						<dd><a>女士拉杆箱</a>
+							<a>拉杆箱</a>
+							<a>拉杆包</a>
+							<a>旅行包</a>
+							<a>电脑包</a>
+							<a>休闲运动包</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>奢侈品</a><i>&gt;</i></dt>
+						<dd><a>箱包</a>
+							<a>钱包</a>
+							<a>服饰</a>
+							<a>腰带</a>
+							<a>鞋靴</a>
+							<a>太阳镜</a>
+							<a>饰品</a>
+						</dd>
+					</dl>	
+				</div>
+				<div id="h" class="sub_content none">
+					<dl>
+						<dt><a>流行男鞋</a><i>&gt;</i></dt>
+						<dd><a>新品推荐</a>
+							<a>休闲鞋</a>
+							<a>商务休闲鞋</a>
+							<a>正装鞋</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>运动鞋包</a><i>&gt;</i></dt>
+						<dd><a>跑步鞋</a>
+							<a>休闲鞋</a>
+							<a>篮球鞋</a>
+							<a>足球鞋</a>
+							<a>板鞋</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>运动服饰</a><i>&gt;</i></dt>
+						<dd><a>羽绒服</a>
+							<a>运动套装</a>
+							<a>运动裤</a>
+							<a>卫衣</a>
+							<a>夹克</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>健身训练</a><i>&gt;</i></dt>
+						<dd><a>跑步机</a>
+							<a>动感单车</a>
+							<a>健身车</a>
+							<a>椭圆机</a>
+							<a>综合训练器</a>
+							<a>划船机</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>骑行运动</a><i>&gt;</i></dt>
+						<dd><a>山地车</a>
+							<a>公路车</a>
+							<a>折叠车</a>
+							<a>骑行服</a>
+							<a>电动车</a>
+							<a>电动滑板车</a>
+							<a>城市自行车</a>
+						</dd>
+					</dl>	
+					<dl>
+						<dt><a>流行男鞋</a><i>&gt;</i></dt>
+						<dd><a>新品推荐</a>
+							<a>休闲鞋</a>
+							<a>商务休闲鞋</a>
+							<a>正装鞋</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>运动鞋包</a><i>&gt;</i></dt>
+						<dd><a>跑步鞋</a>
+							<a>休闲鞋</a>
+							<a>篮球鞋</a>
+							<a>足球鞋</a>
+							<a>板鞋</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>运动服饰</a><i>&gt;</i></dt>
+						<dd><a>羽绒服</a>
+							<a>运动套装</a>
+							<a>运动裤</a>
+							<a>卫衣</a>
+							<a>夹克</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>健身训练</a><i>&gt;</i></dt>
+						<dd><a>跑步机</a>
+							<a>动感单车</a>
+							<a>健身车</a>
+							<a>椭圆机</a>
+							<a>综合训练器</a>
+							<a>划船机</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>骑行运动</a><i>&gt;</i></dt>
+						<dd><a>山地车</a>
+							<a>公路车</a>
+							<a>折叠车</a>
+							<a>骑行服</a>
+							<a>电动车</a>
+							<a>电动滑板车</a>
+							<a>城市自行车</a>
+						</dd>
+					</dl>	
+				</div>
+				<div id="i" class="sub_content none">
+					<dl>
+						<dt><a>房产</a><i>&gt;</i></dt>
+						<dd><a>最新开盘</a>
+							<a>普通住宅</a>
+							<a>别墅</a>
+							<a>商业办公</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>汽车车型</a><i>&gt;</i></dt>
+						<dd><a>微型车</a>
+							<a>小型车</a>
+							<a>紧凑型车</a>
+							<a>中型车</a>
+							<a>中大型车</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>汽车品牌</a><i>&gt;</i></dt>
+						<dd><a>宝马</a>
+							<a>上汽大众</a>
+							<a>吉利</a>
+							<a>沃尔沃</a>
+							<a>五菱宝骏</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>维修保养</a><i>&gt;</i></dt>
+						<dd><a>机油</a>
+							<a>轮船</a>
+							<a>添加剂</a>
+							<a>防冻液</a>
+							<a>滤清器</a>
+							<a>蓄电池</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>汽车装饰</a><i>&gt;</i></dt>
+						<dd><a>座垫座套</a>
+							<a>脚垫</a>
+							<a>头枕腰带</a>
+							<a>方向盘</a>
+							<a>后备箱垫</a>
+							<a>车载支架</a>
+							<a>车钥匙扣</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>房产</a><i>&gt;</i></dt>
+						<dd><a>最新开盘</a>
+							<a>普通住宅</a>
+							<a>别墅</a>
+							<a>商业办公</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>汽车车型</a><i>&gt;</i></dt>
+						<dd><a>微型车</a>
+							<a>小型车</a>
+							<a>紧凑型车</a>
+							<a>中型车</a>
+							<a>中大型车</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>汽车品牌</a><i>&gt;</i></dt>
+						<dd><a>宝马</a>
+							<a>上汽大众</a>
+							<a>吉利</a>
+							<a>沃尔沃</a>
+							<a>五菱宝骏</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>维修保养</a><i>&gt;</i></dt>
+						<dd><a>机油</a>
+							<a>轮船</a>
+							<a>添加剂</a>
+							<a>防冻液</a>
+							<a>滤清器</a>
+							<a>蓄电池</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>汽车装饰</a><i>&gt;</i></dt>
+						<dd><a>座垫座套</a>
+							<a>脚垫</a>
+							<a>头枕腰带</a>
+							<a>方向盘</a>
+							<a>后备箱垫</a>
+							<a>车载支架</a>
+							<a>车钥匙扣</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>房产</a><i>&gt;</i></dt>
+						<dd><a>最新开盘</a>
+							<a>普通住宅</a>
+							<a>别墅</a>
+							<a>商业办公</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>汽车车型</a><i>&gt;</i></dt>
+						<dd><a>微型车</a>
+							<a>小型车</a>
+							<a>紧凑型车</a>
+							<a>中型车</a>
+							<a>中大型车</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>汽车品牌</a><i>&gt;</i></dt>
+						<dd><a>宝马</a>
+							<a>上汽大众</a>
+							<a>吉利</a>
+							<a>沃尔沃</a>
+							<a>五菱宝骏</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>维修保养</a><i>&gt;</i></dt>
+						<dd><a>机油</a>
+							<a>轮船</a>
+							<a>添加剂</a>
+							<a>防冻液</a>
+							<a>滤清器</a>
+							<a>蓄电池</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>汽车装饰</a><i>&gt;</i></dt>
+						<dd><a>座垫座套</a>
+							<a>脚垫</a>
+							<a>头枕腰带</a>
+							<a>方向盘</a>
+							<a>后备箱垫</a>
+							<a>车载支架</a>
+							<a>车钥匙扣</a>
+						</dd>
+					</dl>	
+				</div>
+				<div id="j" class="sub_content none">
+					<dl>
+						<dt><a>奶粉</a><i>&gt;</i></dt>
+						<dd><a>1段</a>
+							<a>2段</a>
+							<a>3段</a>
+							<a>4段</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>营养辅食</a><i>&gt;</i></dt>
+						<dd><a>米粉/菜粉</a>
+							<a>面条</a>
+							<a>果泥</a>
+							<a>益生菌</a>
+							<a>DHA</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>尿裤湿巾</a><i>&gt;</i></dt>
+						<dd><a>NB</a>
+							<a>S</a>
+							<a>M</a>
+							<a>L</a>
+							<a>XL</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>喂养用品</a><i>&gt;</i></dt>
+						<dd><a>奶瓶奶嘴</a>
+							<a>吸奶器</a>
+							<a>暖奶消毒</a>
+							<a>辅食料理机</a>
+							<a>牙胶安抚</a>
+							<a>事物存储</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>洗护用品</a><i>&gt;</i></dt>
+						<dd><a>日常料理</a>
+							<a>洗发沐浴</a>
+							<a>洗澡用具</a>
+							<a>洗衣液/皂</a>
+							<a>理发器</a>
+							<a>婴儿/抱枕</a>
+						</dd>
+					</dl>	
+					<dl>
+						<dt><a>奶粉</a><i>&gt;</i></dt>
+						<dd><a>1段</a>
+							<a>2段</a>
+							<a>3段</a>
+							<a>4段</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>营养辅食</a><i>&gt;</i></dt>
+						<dd><a>米粉/菜粉</a>
+							<a>面条</a>
+							<a>果泥</a>
+							<a>益生菌</a>
+							<a>DHA</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>尿裤湿巾</a><i>&gt;</i></dt>
+						<dd><a>NB</a>
+							<a>S</a>
+							<a>M</a>
+							<a>L</a>
+							<a>XL</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>喂养用品</a><i>&gt;</i></dt>
+						<dd><a>奶瓶奶嘴</a>
+							<a>吸奶器</a>
+							<a>暖奶消毒</a>
+							<a>辅食料理机</a>
+							<a>牙胶安抚</a>
+							<a>事物存储</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>洗护用品</a><i>&gt;</i></dt>
+						<dd><a>日常料理</a>
+							<a>洗发沐浴</a>
+							<a>洗澡用具</a>
+							<a>洗衣液/皂</a>
+							<a>理发器</a>
+							<a>婴儿/抱枕</a>
+						</dd>
+					</dl>	
+				</div>
+				<div id="k" class="sub_content none">
+					<dl>
+						<dt><a>新鲜水果</a><i>&gt;</i></dt>
+						<dd><a>苹果</a>
+							<a>香蕉</a>
+							<a>梨</a>
+							<a>橙子</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>蔬菜蛋品</a><i>&gt;</i></dt>
+						<dd><a>蛋品</a>
+							<a>叶菜类</a>
+							<a>块茎类</a>
+							<a>葱姜蒜椒</a>
+							<a>鲜菌菇</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>精选肉类</a><i>&gt;</i></dt>
+						<dd><a>猪肉</a>
+							<a>牛肉</a>
+							<a>羊肉</a>
+							<a>鸡肉</a>
+							<a>鸭肉</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>新鲜水产</a><i>&gt;</i></dt>
+						<dd><a>鱼类</a>
+							<a>虾类</a>
+							<a>蟹类</a>
+							<a>贝类</a>
+							<a>海参</a>
+							<a>鱿鱼/章鱼</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>冷饮冻食</a><i>&gt;</i></dt>
+						<dd><a>水饺</a>
+							<a>汤圆</a>
+							<a>面点</a>
+							<a>烘焙半成品</a>
+							<a>奶酪</a>
+							<a>方便速食</a>
+							<a>白酒</a>
+						</dd>
+					</dl>	
+					<dl>
+						<dt><a>新鲜水果</a><i>&gt;</i></dt>
+						<dd><a>苹果</a>
+							<a>香蕉</a>
+							<a>梨</a>
+							<a>橙子</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>蔬菜蛋品</a><i>&gt;</i></dt>
+						<dd><a>蛋品</a>
+							<a>叶菜类</a>
+							<a>块茎类</a>
+							<a>葱姜蒜椒</a>
+							<a>鲜菌菇</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>精选肉类</a><i>&gt;</i></dt>
+						<dd><a>猪肉</a>
+							<a>牛肉</a>
+							<a>羊肉</a>
+							<a>鸡肉</a>
+							<a>鸭肉</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>新鲜水产</a><i>&gt;</i></dt>
+						<dd><a>鱼类</a>
+							<a>虾类</a>
+							<a>蟹类</a>
+							<a>贝类</a>
+							<a>海参</a>
+							<a>鱿鱼/章鱼</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>冷饮冻食</a><i>&gt;</i></dt>
+						<dd><a>水饺</a>
+							<a>汤圆</a>
+							<a>面点</a>
+							<a>烘焙半成品</a>
+							<a>奶酪</a>
+							<a>方便速食</a>
+							<a>白酒</a>
+						</dd>
+					</dl>	
+				</div>
+				<div id="l" class="sub_content none">
+					<dl>
+						<dt><a>中西药品</a><i>&gt;</i></dt>
+						<dd><a>感冒咳嗽</a>
+							<a>补肾壮阳</a>
+							<a>补气养血</a>
+							<a>止痛镇痛</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>营养健康</a><i>&gt;</i></dt>
+						<dd><a>调节免疫</a>
+							<a>调节三高</a>
+							<a>缓解疲劳</a>
+							<a>美体塑身</a>
+							<a>美容养颜</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>营养成分</a><i>&gt;</i></dt>
+						<dd><a>维生素</a>
+							<a>蛋白质</a>
+							<a>鱼油</a>
+							<a>螺旋藻</a>
+							<a>阿胶</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>滋补养生</a><i>&gt;</i></dt>
+						<dd><a>阿胶</a>
+							<a>蜂蜜</a>
+							<a>枸杞</a>
+							<a>燕窝</a>
+							<a>冬虫夏草</a>
+							<a>人参</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>保健器械</a><i>&gt;</i></dt>
+						<dd><a>血压计</a>
+							<a>血糖仪</a>
+							<a>血氧仪</a>
+							<a>体温计</a>
+							<a>体重计</a>
+							<a>胎心仪</a>
+							<a>制氧机</a>
+						</dd>
+					</dl>	
+					<dl>
+						<dt><a>中西药品</a><i>&gt;</i></dt>
+						<dd><a>感冒咳嗽</a>
+							<a>补肾壮阳</a>
+							<a>补气养血</a>
+							<a>止痛镇痛</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>营养健康</a><i>&gt;</i></dt>
+						<dd><a>调节免疫</a>
+							<a>调节三高</a>
+							<a>缓解疲劳</a>
+							<a>美体塑身</a>
+							<a>美容养颜</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>营养成分</a><i>&gt;</i></dt>
+						<dd><a>维生素</a>
+							<a>蛋白质</a>
+							<a>鱼油</a>
+							<a>螺旋藻</a>
+							<a>阿胶</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>滋补养生</a><i>&gt;</i></dt>
+						<dd><a>阿胶</a>
+							<a>蜂蜜</a>
+							<a>枸杞</a>
+							<a>燕窝</a>
+							<a>冬虫夏草</a>
+							<a>人参</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>保健器械</a><i>&gt;</i></dt>
+						<dd><a>血压计</a>
+							<a>血糖仪</a>
+							<a>血氧仪</a>
+							<a>体温计</a>
+							<a>体重计</a>
+							<a>胎心仪</a>
+							<a>制氧机</a>
+						</dd>
+					</dl>	
+					<dl>
+						<dt><a>中西药品</a><i>&gt;</i></dt>
+						<dd><a>感冒咳嗽</a>
+							<a>补肾壮阳</a>
+							<a>补气养血</a>
+							<a>止痛镇痛</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>营养健康</a><i>&gt;</i></dt>
+						<dd><a>调节免疫</a>
+							<a>调节三高</a>
+							<a>缓解疲劳</a>
+							<a>美体塑身</a>
+							<a>美容养颜</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>营养成分</a><i>&gt;</i></dt>
+						<dd><a>维生素</a>
+							<a>蛋白质</a>
+							<a>鱼油</a>
+							<a>螺旋藻</a>
+							<a>阿胶</a>
+						</dd>
+					</dl>
+					<dl>	
+						<dt><a>滋补养生</a><i>&gt;</i></dt>
+						<dd><a>阿胶</a>
+							<a>蜂蜜</a>
+							<a>枸杞</a>
+							<a>燕窝</a>
+							<a>冬虫夏草</a>
+							<a>人参</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt><a>保健器械</a><i>&gt;</i></dt>
+						<dd><a>血压计</a>
+							<a>血糖仪</a>
+							<a>血氧仪</a>
+							<a>体温计</a>
+							<a>体重计</a>
+							<a>胎心仪</a>
+							<a>制氧机</a>
+						</dd>
+					</dl>	
+				</div>
+			</div>
+			</div>
+		<script type="text/javascript">
+			//获取offset
+			//getOffset(a).top
+			//getOffset(a).left
+			function getOffset(Node, offset) {
+			    if (!offset) {
+			        offset = {};
+			        offset.top = 0;
+			        offset.left = 0;
+			    }
+			
+			    if (Node == document.body) {//当该节点为body节点时，结束递归
+			        return offset;
+			    }
+			
+			    offset.top += Node.offsetTop;
+			    offset.left += Node.offsetLeft;
+			
+			    return getOffset(Node.parentNode, offset);//向上累加offset里的值
+			}
+			//判断两个数是否同号
+			function sameSign(a,b){
+				return (a^b)>=0
+			}
+			//向量的定义方法
+			function vector(a,b){
+				return {
+					x: b.x-a.x,
+					y: b.y-a.y
+				}
+			}
+			//向量差乘
+			function vectorProduct(v1,v2){
+				return v1.x*v2.y-v2.x*v1.y
+			}
+			//判断是否在三角形里面
+			function isPointInTriangle(p,a,b,c){
+				var pa=vector(p,a)
+				var pb=vector(p,b)
+				var pc=vector(p,c)
+				var t1=vectorProduct(pa,pb)
+				var t2=vectorProduct(pb,pc)
+				var t3=vectorProduct(pc,pa)
+				console.log(t1)
+				console.log(t2)
+				console.log(t3)
+				return sameSign(t1,t2)&&sameSign(t2,t3)
+			}
+			//判断是否需要延迟
+			function needDelay(elem,leftCorner,currMousePos){
+				var left=getOffset(elem).left
+				var top=getOffset(elem).top
+				var height=elem.offsetHeight
+				var topLeft={
+					x:left,
+					y:top
+				}
+				console.log("b点坐标是：")
+				console.log(topLeft)
+				var bottomLeft={
+					x:left,
+					y:top+height
+				}	
+				console.log("c点坐标是：")
+				console.log(bottomLeft)
+				return isPointInTriangle(currMousePos,leftCorner,topLeft,bottomLeft)
+			}
+		</script>
+		<script type="text/javascript">
+			Element.prototype.myChildren=function(){ //改变元素的构造函数即可
+				var child=this.childNodes;
+				var len=child.length;
+				var mychild=[];
+				for(var i=0;i<len;i++){
+					if(child[i].nodeType==1){
+						mychild.push(child[i]);
+					}
+				}
+				return mychild;
+			}
+			window.onload=function(){
+				var sub=document.getElementById('sub');
+				var activeRow  //当前激活的一级菜单
+				var activeMenu //当前激活的二级菜单
+				var test=document.getElementById('test');
+				var mouseInSub=false
+				var timer
+				sub.onmouseenter=function(){
+					mouseInSub=true
+				}
+				sub.onmouseleave=function(){
+					mouseInSub=false
+				}
+				var mouseTrack=[]
+				function moveHandler(e){
+					mouseTrack.push({
+					x:e.pageX,
+					y:e.pageY
+				})
+					if(mouseTrack.length>3){
+					mouseTrack.shift()
+					}
+				}
+				test.onmouseenter=function(e){
+					document.onmousemove=function(e){
+						moveHandler(e);
+					}
+				}
+				test.onmouseleave=function(e){
+					sub.classList.add('none')
+					if(activeRow){
+						activeRow.classList.remove('active')
+						activeRow=null
+					}
+					if(activeMenu){
+						activeMenu.classList.add('none')
+						activeMenu=null
+					}
+					document.onmousemove=function(e){
+						
+					}
+				}
+				var ul=document.getElementById('ul');
+				var liList=ul.myChildren();
+				for(var i=0;i<liList.length;i++){
+					liList[i].onmouseenter=function(e){
+						sub.classList.remove('none')
+						if(!activeRow){
+							e.target.classList.add('active')
+							activeRow=e.target
+							var id=e.target.dataset.id  
+							activeMenu=document.getElementById(id)
+							activeMenu.classList.remove('none');
+							return
+						}
+						if(timer){
+							clearTimeout(timer)
+						}
+						var currMousePos=mouseTrack[mouseTrack.length-1] //当前的位置
+						var leftCorner=mouseTrack[mouseTrack.length-2]//上一个位置
+						console.log("a:")
+						console.log(leftCorner)
+						console.log("p:")
+						console.log(currMousePos)
+			
+						var delay=needDelay(sub,leftCorner,currMousePos)
+						console.log(delay)
+						if(delay){
+						timer=setTimeout(function(){
+							if(mouseInSub){
+								return   //不改变当前一级菜单的状态
+							}
+							activeRow.classList.remove('active')
+							activeMenu.classList.add('none')
+							activeRow=e.target
+							activeRow.classList.add('active')
+							var id_1=e.target.dataset.id  
+							activeMenu=document.getElementById(id_1)
+							activeMenu.classList.remove('none');
+							timer=null
+							},300)
+							}else{
+								var prevActiveRow=activeRow
+								var prevActiveMenu=activeMenu
+								activeRow=e.target
+								var id_1=e.target.dataset.id  
+								activeMenu=document.getElementById(id_1)
+								prevActiveRow.classList.remove('active')
+								prevActiveMenu.classList.add('none')
+								activeRow.classList.add('active')
+								activeMenu.classList.remove('none');
+							}
+					}
+				}
+			}
+
+		</script>
+	</body>
+</html>
