@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>会飞的小鸟</title>
+		<><style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			body{
+				overflow: hidden;
+			}
+			#sky{
+				position: absolute;
+			}
+			.bird_38{
+				transform: rotate(90deg);
+			}
+			.bird_39{
+				transform: rotateY(180deg);
+			}
+			.bird_40{
+				transform: rotate(-90deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="sky"><img src="img/bird.gif" alt="会飞的小鸟" class="bird"/>
+		</div>
+		<script type="text/javascript">
+			var bird=document.getElementById('sky');
+			var birdSize={
+				width:bird.offsetWidth,
+				height:bird.offsetHeight
+				};
+			var browserWidth=window.innerWidth,
+				browserHeight=window.innerHeight;
+			var speedvalue=prompt("请输入速度：");
+			var speed=parseInt(speedvalue);
+				function getBirdPos(){
+					return{
+						left:bird.offsetLeft,
+						top:bird.offsetTop
+					}
+				}
+				function goLeft(){
+				var left=getBirdPos().left,
+					top=getBirdPos().top;
+				bird.removeAttribute("class");
+				bird.setAttribute("class","bird_37");
+				bird.style.left=left-speed+"px";
+					if(left<-birdSize.width){
+						bird.style.left=browserWidth+"px";
+					}
+				}
+				function goRight(){
+				var left=getBirdPos().left,
+					top=getBirdPos().top;
+				bird.removeAttribute("class");
+				bird.setAttribute("class","bird_39");
+				bird.style.left=left+speed+"px";
+					if(left>browserWidth){
+						bird.style.left=-birdSize.width+"px";
+					}
+				}
+				function goTop(){
+				var left=getBirdPos().left,
+					top=getBirdPos().top;
+				bird.removeAttribute("class");
+				bird.setAttribute("class","bird_38");
+				bird.style.top=top-speed+"px";
+				if(top<-birdSize.height){
+					bird.style.top=browserHeight+"px";
+					}
+				}
+				function goBottom(){
+				var left=getBirdPos().left,
+					top=getBirdPos().top;
+				bird.removeAttribute("class");
+				bird.setAttribute("class","bird_40");
+				bird.style.top=top+speed+"px";
+				if(top>browserHeight){
+					bird.style.top=-birdSize.height+"px";
+				}
+				}
+			document.onkeydown=function(e){
+				e=e||event;
+				var keycode=e.keyCode;
+				switch(keycode){
+					case 37:
+					goLeft();
+					break;
+					case 38:
+					goTop();
+					break;
+					case 39:
+					goRight();
+					break;
+					case 40:
+					goBottom();
+					break;
+				}
+			}
+			document.onclick=function(e){
+				e=e||event;
+				var left=getBirdPos().left,
+					top=getBirdPos().top;
+				if(e.clientX-left<0 && e.clientY>top && e.clientY<top+birdSize.height)
+				{
+					goLeft();
+				}else if(e.clientX>left+birdSize.width &&  e.clientY>top && e.clientY<top+birdSize.height){
+					goRight();
+				}
+				else if(e.clientY<top && e.clientX>left && e.clientX<left+birdSize.width){
+					goTop();
+				}
+				else if(e.clientY>top+birdSize.height && e.clientX>left && e.clientX<left+birdSize.width){
+					goBottom();
+				}
+				else{
+					console.log("请重新选取方向!");
+				}
+			}
+		</script>
+	</body>
+</html>
