@@ -1,0 +1,6 @@
+               	//js动态创建拥有transition属性的元素时须使transitionDuration语句代码与改变属性的语句代码拥有一个时间差(延时函数实现)
+                newSnowItem.style.transitionProperty="top";
+               	newSnowItem.style.transitionDuration=duration;
+               	setTimeout(function(){
+	        		newSnowItem.style.top = endPositionTop +"px";
+               	},100)
