@@ -1,2 +1,2 @@
 # javascript
-Learning web technology
+Take notes on JavaScript
