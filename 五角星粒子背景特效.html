@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>五角星粒子背景</title>
+		<style type="text/css">
+			body{
+				background-color:black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script type="text/javascript">
+		!function (undefined) {
+			"use strict"; //使用严格模式
+			/**
+			 
+			 * 2018-03-1
+		
+			 * @var star_r:star五角星内圈半径系数，值越大，半径越大；
+		
+			 * @var star_alpha:star透明度，值越大，越透明；
+		
+			 * @var initStarNum:初始化star个数；
+		
+			 * @var move_distance:位移距离，即star向上跑的距离，数值越大，相同时间内，速度越快。
+		
+			 * @var dot_r:dot五角星内圈半径系数，值越大，半径越大；
+		
+			 * @var dot_alpha:dot透明度；
+		
+			 * @var dot_speed:dot运动速度；
+		
+			 * @var dot_vanish:dot消失条件，透明度小于vanish时消失；
+		
+			 * @var dot_mindis:dot最小距离；
+		
+			 * @var dot_maxdis:dot最大距离；
+		
+			 */
+			var config = {
+				star_r: 3,
+				star_alpha: 1,
+				initStarNum: 200,
+				move_distance: 0.25,
+				dot_r: 3,
+				dot_alpha: 0.5,
+				dot_speed: 0.5,
+				dot_vanish: 0.01,
+				dot_mindis: 5,
+				dot_maxdis: 50
+			};
+			var canvas = document.getElementById("canvas"),
+				ctx = canvas.getContext("2d"),
+				W = document.documentElement.clientWidth,
+				H = document.documentElement.clientHeight,
+				mouseMoving = false,
+				mouseMoveChecker, mouseX, mouseY, stars = [],
+				dots = [];
+				const rgbColors=["51,181,229","0,153,204","170,102,204","153,51,204","102,153,0","255,187,51","255,136,0","255,68,68","204,0,0","187,85,221"];
+				const colors=["#33B5E5","#0099CC","#AA66CC","9933CC","#669900","#FFBB33","#FF8800","#FF4444","#CC0000","#BB55DD"];
+				const currColor="rgba("+getColor('rgb')+",0.5)";
+			function CanvasStar() { };
+			canvas.width = W;
+			canvas.height = H;
+		
+			function initConfig(conf) {
+				if (conf instanceof Object) {
+					for (var key in conf) {
+						config[key] = conf[key];
+					}
+				}
+			}
+			function getColor(rgb){
+				var index=Math.floor(Math.random()*10)
+				if(rgb){
+					return rgbColors[index]	
+				}else{
+					return colors[index]		
+				}
+			}
+			function drawStar( ctx , r , R , x , y , rot , fillStyle){
+				ctx.save();
+		        ctx.beginPath();
+		        for( var i = 0 ; i < 5 ; i ++){
+		            ctx.lineTo(Math.cos((18+72*i - rot)/180*Math.PI) * R + x ,- Math.sin((18+72*i - rot )/180*Math.PI) * R + y);
+		            ctx.lineTo(Math.cos((54+72*i - rot)/180*Math.PI) * r + x ,- Math.sin((54+72*i - rot )/180*Math.PI) * r + y);
+		        }
+		        ctx.closePath();
+		        ctx.fillStyle = fillStyle;
+		        ctx.fill();
+		        ctx.restore();
+		    }
+			//初始化参数 画出200个星星 x,y值随机
+			CanvasStar.prototype.init = function (conf) {
+				initConfig(conf); 
+				ctx.fillstyle = getColor();
+				ctx.shadowColor = ctx.fillStyle;
+				ctx.shadowBlur = 0;
+				for (var i = 0; i < config.initStarNum; i++) {
+					stars[i] = new Star(i, Math.floor(Math.random() * W), Math.floor(Math.random() * H), true);
+				}
+				animate();
+			};
+			/**
+		
+			 * [Star 设置单个star]
+		
+			 * @param {[type]} id       [id]
+		
+			 * @param {[type]} x        [x坐标]
+		
+			 * @param {[type]} y        [y坐标]
+		
+			 * @param {[type]} useCache [是否使用缓存]
+		
+			 */
+		
+			function Star(id, x, y, useCache) {
+				this.id = id;
+				this.x = x;
+				this.y = y;
+				this.useCache = useCache;
+				this.cacheCns = document.createElement("canvas");
+				this.cacheCtx = this.cacheCns.getContext("2d");
+				this.r = Math.floor(Math.random() * config.star_r + 2);
+				this.cacheCns.width = 20 * this.r;
+				this.cacheCns.height = 20 * this.r;
+				this.alpha = Math.floor(Math.random() * 10 + 1) / config.star_alpha;
+				this.color = "rgba("+getColor("rgb")+","+ this.alpha + ")";
+				if (useCache) {
+					this.cache();
+				}
+			}
+			Star.prototype = {
+				draw: function () {
+					if (!this.useCache) {
+						ctx.shadowColor = this.color;
+						ctx.shadowBlur = 1;
+						drawStar( ctx , this.r , this.r*2.5 , this.x , this.y , this.r*3 , this.color)
+					} else {
+						ctx.drawImage(this.cacheCns, this.x - this.r, this.y - this.r);
+					}
+				},
+		
+				cache: function () {
+					this.cacheCtx.shadowColor = this.color;
+					this.cacheCtx.shadowBlur = 0;
+					drawStar( this.cacheCtx , this.r, this.r*2.5 , this.r*5 , this.r*10 , Math.floor(Math.random()*10)*this.r, this.color)
+				},
+				move: function () {
+					this.y -= config.move_distance;
+					if (this.y <= -10) {
+						this.y = H + 10;
+					}
+					this.draw();
+				},
+				die: function () {
+					stars[this.id] = null;
+					stars.splice(this.id, 1);
+				}
+			}
+		
+			function Dot(id, x, y, useCache) {
+				this.id = id;
+				this.x = x;
+				this.y = y;
+				this.useCache = useCache;
+				this.dotCns = document.createElement("canvas");
+				this.dotCtx = this.dotCns.getContext("2d");		
+				this.r = Math.floor(Math.random() * config.dot_r + 2);
+				this.speed = config.dot_speed;
+				this.vanish = config.dot_vanish;
+				this.alpha = config.dot_alpha; //线
+		
+				this.dotCtx.alpha = 1; //点
+				this.color = "rgba("+getColor('rgb')+"," + this.alpha + ")";
+				this.dotCtx.color = "rgba("+getColor('rgb')+"," + this.dotCtx.alpha + ")";
+				this.dir = Math.floor(Math.random() * 140) + 200;
+				if (useCache) {
+					this.cache();
+				}
+			}
+			Dot.prototype = {
+				draw: function () {
+					if (!this.useCache) {
+						ctx.shadowBlur = 1;
+						ctx.shadowColor = this.color;
+						drawStar(ctx , this.r, this.r*2.5 , this.x , this.y , Math.floor(Math.random()*10)*this.r, this.color)
+					} else {
+						ctx.drawImage(this.dotCns, this.x - this.r*2.5 , this.y - this.r*2.5 );
+					}
+				},
+				cache: function () {
+					this.dotCtx.alpha -= this.vanish;
+					this.dotCtx.color = "rgba("+getColor("rgb")+"," + this.dotCtx.alpha + ")";
+					this.dotCtx.shadowColor = this.dotCtx.color;
+					this.dotCtx.shadowBlur = 1;
+					drawStar( this.dotCtx , this.r, this.r*2.5 , this.r*2.5 , this.r*2.5 , Math.floor(Math.random()*10)*this.r, this.color)
+				},
+				line: function () {
+					if (this.id == 0) return;
+					var previousDot1 = getPreviousDot(this.id, 1);
+					var previousDot2 = getPreviousDot(this.id, 2);
+					var previousDot3 = getPreviousDot(this.id, 3);
+					var previousDot4 = getPreviousDot(this.id, 4);
+					if (!previousDot1) return;
+					ctx.strokeStyle = this.color;
+					ctx.moveTo(previousDot1.x, previousDot1.y);
+					ctx.beginPath();
+					ctx.lineTo(this.x, this.y);
+					if (previousDot2 != false) ctx.lineTo(previousDot2.x, previousDot2.y);
+					if (previousDot3 != false) ctx.lineTo(previousDot3.x, previousDot3.y);
+					if (previousDot4 != false) ctx.lineTo(previousDot4.x, previousDot4.y);
+					ctx.stroke();
+					ctx.closePath();
+				},
+				move: function () {
+					this.alpha -= this.vanish;
+					if (this.alpha <= 0) {
+						this.die();
+						return;
+					}
+					this.dotCtx.alpha -= this.vanish;
+					this.color = currColor //线的颜色
+					this.dotCtx.color ="rgba("+getColor("rgb")+"," + this.dotCtx.alpha + ")";//点的颜色
+					this.x = this.x + Math.cos(this.dir * (Math.PI / 180)) * this.speed;
+					this.y = this.y + Math.sin(this.dir * (Math.PI / 180)) * this.speed;
+					this.draw();
+					this.line();
+				},
+				die: function () {
+					dots[this.id] = null;
+		
+					delete dots[this.id];
+				}
+			}
+		
+			function getPreviousDot(id, step) {
+				if (id == 0 || id - step < 0) return false;
+				if (typeof dots[id - step] !== "undefined") {
+					return dots[id - step];
+				} else {
+					return false;
+				}
+			}
+			document.onmousemove = function (e) {
+				var e = e || event;
+				mouseMoving = true;
+				mouseX = e.clientX;
+				mouseY = e.clientY;
+		
+			}
+		
+			function drawIfMouseMoving() {
+				if (!mouseMoving) return;
+				if (dots.length == 0) {
+					dots[0] = new Dot(0, mouseX, mouseY, true);
+					dots[0].draw();
+					return;
+				}
+				var previousDot = getPreviousDot(dots.length, 1);
+				var diffX = Math.abs(previousDot.x - mouseX);
+				var diffY = Math.abs(previousDot.y - mouseY);
+				if (diffX < config.dot_mindis || diffY < config.dot_mindis) return;
+				var randomX = Math.random() > 0.5 ? -1 : 1;
+				randomX = randomX * Math.floor(Math.random() * config.dot_maxdis + 1);
+				var randomY = Math.random() > 0.5 ? -1 : 1;
+				randomY = randomY * Math.floor(Math.random() * config.dot_maxdis + 1);
+				dots[dots.length] = new Dot(dots.length, mouseX + randomX, mouseY + randomY, true);
+				dots[dots.length - 1].draw();
+				dots[dots.length - 1].line();
+			}
+		
+			function animate() {
+				ctx.clearRect(0, 0, W, H);
+				for (var i in stars) {
+					stars[i].move();
+				}
+				for (var i in dots) {
+					dots[i].move();
+				}
+				drawIfMouseMoving();
+				requestAnimationFrame(animate); //刷新动画
+			}
+			var _global;
+			_global = (function () {
+				return this || (0, eval)("this"); //严格模式下this没定义 故需要用全局的eval方法返回Window对象
+			}());
+				!("CanvasStar" in _global) && (_global.CanvasStar = CanvasStar);
+		}();
+			new CanvasStar().init();
+		</script>
+	</body>
+</html>
